@@ -1,0 +1,176 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Modificabile se si desidera un font diverso */
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    color: #333;
+    background-color: #f0f2f5;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 300px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    position: fixed;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.profile-section {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 28px;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    color: #000;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 30px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Content Styles */
+.content-wrapper {
+    background-color: #ffffff;
+    border-radius: 15px; /* Angoli arrotondati */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Ombra più evidente */
+    margin-left: 320px; /* Spazio dalla sidebar e navbar */
+    margin-top: 40px; /* Spazio dalla parte superiore della finestra */
+    width: calc(100% - 340px); /* Larghezza meno spazio sidebar e navbar */
+    height: calc(100vh - 80px); /* Altezza meno il padding della sidebar e navbar */
+    max-width: 800px; /* Dimensione massima per contenitore centrale */
+    max-height: 600px; /* Dimensione massima per contenitore centrale */
+}
+
+.content {
+    height: 100%;
+    overflow-y: auto; /* Scroll verticale */
+    padding: 20px; /* Padding interno */
+    box-sizing: border-box;
+    background-color: #f0f2f5; /* Colore di sfondo */
+}
+
+section {
+    margin-bottom: 50px; /* Spazio tra le sezioni */
+}
+
+h2 {
+    font-size: 24px; /* Ridotto per coerenza */
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-button {
+    background-color: transparent;
+    color: #888;
+    border: 2px solid #888;
+    padding: 8px; /* Ridotto per cerchi più piccoli */
+    margin: 10px 0; /* Maggiore distanza tra i pulsanti */
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-size: 20px; /* Ridotto per proporzioni */
+    position: relative;
+    width: 40px; /* Cerchi più piccoli */
+    height: 40px; /* Cerchi più piccoli */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-button:hover {
+    background-color: #ddd;
+    color: #333;
+    border-color: #333;
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Ridotto per cerchi più piccoli */
+    left: -8px; /* Ridotto per cerchi più piccoli */
+    width: 56px; /* Ridotto per cerchi più piccoli */
+    height: 56px; /* Ridotto per cerchi più piccoli */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover::before {
+    background-color: rgba(0, 0, 0, 0.2);
+}
